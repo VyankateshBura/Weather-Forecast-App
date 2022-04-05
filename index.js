@@ -11,9 +11,28 @@ const Location = document.querySelector('.locat')
 const curr_temp = document.querySelector('.curr_temp')
 const humidity = document.querySelector('.hum')
 const image = document.getElementById('ig');
+const toggle = document.getElementById('toggle');
+const bg = document.getElementById('bg');
+const formlabel = document.querySelector('.form-label');
 
-
-
+var togglenum = 0;
+toggle.addEventListener('click',()=>{
+    console.log("toggled");
+    if(togglenum%2==0){
+        bg.style.backgroundImage = 'url(./nightphoto.jpg)';
+        head.style.color="white";
+        formlabel.style.color="white";
+        togglenum++;
+        console.log('night');
+    }
+    else{
+        bg.style.backgroundImage = 'url(./bg.png)';
+        head.style.color="black";
+        formlabel.style.color="black";
+        togglenum++;
+        console.log('day');
+    }    
+})
 
 const errorOccured = ()=>{
    
@@ -24,31 +43,6 @@ const errorOccured = ()=>{
         inpemail.style.borderColor = "black";
         inputtext.value ='';
     }, 5000);
-}
-const getcode = (dat)=>{
-    let data = dat;
-    if(data===200){
-        return '2x';
-    }
-    else if(data===300){
-        return '3x';
-    }
-    else if(data===500){
-        return '3x';
-    }
-    else if(data===600){
-        return '6x';
-    }
-    else if(data===700){
-        return '7x';
-    }
-    else if(data===800){
-        return '800';
-    }
-    else{
-        return '80x';
-    }
-    
 }
 
 checksearch.addEventListener("submit",async(e)=>{
