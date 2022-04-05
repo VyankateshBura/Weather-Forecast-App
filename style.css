@@ -3,6 +3,16 @@ body{
     background-size: 1500px 620px;
     background-repeat: no-repeat;
 }
+.form-label{
+    color:black;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+.form-text{
+    color:black;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
 
 .search{
     margin:10px;
@@ -35,9 +45,9 @@ body{
     padding: 20px;
     border: 2px solid black;
     height: 400px;
-    background-color:whitesmoke;
+    background-color:white;
     border-radius: 10px;
-    box-shadow:0 5px 5px 0 black;
+    box-shadow:0 2px 8px 0 white;
 }
 #back{
     margin-top:30px;

@@ -14,6 +14,8 @@ const image = document.getElementById('ig');
 const toggle = document.getElementById('toggle');
 const bg = document.getElementById('bg');
 const formlabel = document.querySelector('.form-label');
+const formtext = document.querySelector('.form-text');
+const box = document.getElementById('boxes');
 
 var togglenum = 0;
 toggle.addEventListener('click',()=>{
@@ -22,6 +24,8 @@ toggle.addEventListener('click',()=>{
         bg.style.backgroundImage = 'url(./nightphoto.jpg)';
         head.style.color="white";
         formlabel.style.color="white";
+        formtext.style.color="white";
+        box.style.boxShadow = "0 2px 8px 0 white";
         togglenum++;
         console.log('night');
     }
@@ -29,6 +33,8 @@ toggle.addEventListener('click',()=>{
         bg.style.backgroundImage = 'url(./bg.png)';
         head.style.color="black";
         formlabel.style.color="black";
+        formtext.style.color="black";
+        box.style.boxShadow = "0 2px 8px 0 black";
         togglenum++;
         console.log('day');
     }    
