@@ -11,7 +11,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/main" element={<Main/>}></Route>
+          <Route path="/main/" element={<Main/>}></Route>
         </Routes>
       </BrowserRouter>
     

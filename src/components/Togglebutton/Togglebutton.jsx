@@ -3,6 +3,7 @@ import "./Togglebutton.scss"
 const Togglebutton = (props) => {
   const toggle = ()=>{
     props.handletoggle();
+  
   }
   
   return (
