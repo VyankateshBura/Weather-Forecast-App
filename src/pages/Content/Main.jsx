@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import Header from '../../components/Header/Header';
 import Togglebutton from '../../components/Togglebutton/Togglebutton';
 import axios from 'axios';
-import {HOST,API_KEY} from './config.js'
+import {HOST,API_KEY} from './KEYS.js'
 
 function Main(){
     const [data, setdata] = useState([]);
