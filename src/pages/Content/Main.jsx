@@ -1,19 +1,19 @@
 import React,{useState,useEffect} from 'react';
-import { useLocation } from 'react-router-dom'
+import { Link,useLocation } from 'react-router-dom'
 import Header from '../../components/Header/Header';
 import Togglebutton from '../../components/Togglebutton/Togglebutton';
 import axios from 'axios';
+import "./Main.css"
 import {HOST,API_KEY} from './KEYS.js'
 
 function Main(){
-    const [data, setdata] = useState([]);
+    const [data, setdata] = useState(false);
     const [bgcolor, setBgcolor] = useState('white');
     const [textcol, settextcol] = useState('black');
     const [shadowcolor, setshadowcolor] = useState('2px 2px 5px black');
     const location = useLocation();
     const search = location.search.split('=')[1];
-
-    console.log(search);
+    // console.log(search);
     useEffect(() => {
 
         const options = {
@@ -30,7 +30,7 @@ function Main(){
             
         }
         getPost();
-        console.log(data)
+        // console.log(data)
     }, [search])
     const handletoggle = ()=>{
         if(bgcolor === 'white'){
@@ -56,19 +56,25 @@ function Main(){
                         <div className = 'col-6 ' >
                              <h1 style={{color:`${textcol}`}}>Today's Weather!</h1>
                             <u  style={{color:`${textcol}`, fontSize: "25px",fontWeight: "bold",display:"inline"}}>Location:</u>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <h3  style={{color:`${textcol}`,display:"inline"}}>{data.name}</h3><br/>
-                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Current Temperature:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3  style = {{display:"inline"}} ></h3><br/>
-                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Humidity:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3  style = {{display:"inline"}}></h3><br></br>
-                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Description:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3 style = {{display:"inline"}} ></h3>
-                
+                            <h3  style={{color:`${textcol}`,display:"inline"}}>{data.name}</h3><br/><br/>
+                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Current Temperature:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3  style = {{display:"inline"}} >{data?`${data.main.temp}°C`:''}</h3><br/><br/>
+                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Humidity:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3  style = {{display:"inline"}}>{data?`${data.main.humidity}%`:''}</h3><br></br><br/>
+                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Description:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3 style = {{display:"inline"}} >{data?`"${data.weather[0]['description']}"`:''}</h3>
+
                             <form className = "check">
-                                <button type="submit" className="btn btn-primary" id = "back">  Back  </button>
+                            <Link to="/">
+                                <button type="submit" className="btn btn-primary" id = "back"> 
+                                 Back      
+                                 </button>
+                            </Link>
                             </form>
                             
                         </div>
-                        {/* <div className = "col-6" id="ig">
-                            
-                        </div> */}
+                        <div className = "col-6" id="ig" style={{backgroundColor:"whitesmoke",borderRadius:"10px", display:"flex",justifyContent:"center",alignItems:"center"}}>
+                            {data &&
+                                <img className = "image" src={`http://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png`} alt = "This is the cloud image"/>
+                            }                            
+                        </div>
                 </div>
             </div>
         </div>
