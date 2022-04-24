@@ -57,9 +57,9 @@ function Main(){
                              <h1 style={{color:`${textcol}`}}>Today's Weather!</h1>
                             <u  style={{color:`${textcol}`, fontSize: "25px",fontWeight: "bold",display:"inline"}}>Location:</u>&nbsp;&nbsp;&nbsp;&nbsp;
                             <h3  style={{color:`${textcol}`,display:"inline"}}>{data.name}</h3><br/><br/>
-                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Current Temperature:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3  style = {{display:"inline"}} >{data?`${data.main.temp}°C`:''}</h3><br/><br/>
-                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Humidity:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3  style = {{display:"inline"}}>{data?`${data.main.humidity}%`:''}</h3><br></br><br/>
-                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Description:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3 style = {{display:"inline"}} >{data?`"${data.weather[0]['description']}"`:''}</h3>
+                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Current Temperature:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3  style = {{color:`${textcol}`,display:"inline"}} >{data?`${data.main.temp}°C`:''}</h3><br/><br/>
+                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Humidity:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3  style = {{color:`${textcol}`,display:"inline"}}>{data?`${data.main.humidity}%`:''}</h3><br></br><br/>
+                            <u style={{color:`${textcol}`,fontSize: "25px",fontWeight: "bold",display:"inline"}}>Description:</u>&nbsp;&nbsp;&nbsp;&nbsp;<h3 style = {{color:`${textcol}`,display:"inline"}} >{data?`"${data.weather[0]['description']}"`:''}</h3>
 
                             <form className = "check">
                             <Link to="/">
